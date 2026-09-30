@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>EARNING KING</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:Arial,sans-serif;background:#000;color:#fff;min-height:100vh}
+header{height:76px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(145deg,#111,#020202);border-bottom:1px solid #735817;position:sticky;top:0;z-index:50;box-shadow:0 8px 25px #000}
+.brand{display:flex;align-items:center;gap:10px}.kingLogo{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;font-size:28px;color:#080808;background:linear-gradient(145deg,#fff4a9,#d4af37,#765400);box-shadow:inset 2px 2px 5px #fff9,inset -4px -4px 7px #4c3500,0 7px 18px #000;animation:glow 2.5s infinite alternate}.brand h1{color:#e8c95b;font-size:18px;letter-spacing:1px}.brand small{color:#666;font-size:9px;letter-spacing:1px}
+.headerBtns{display:flex;gap:7px}.premiumBtn{position:relative;overflow:hidden;border:1px solid #987520;border-radius:12px;padding:10px 12px;color:#e9cb60;background:linear-gradient(145deg,#242424,#070707);box-shadow:4px 5px 10px #000,inset 1px 1px 2px #ffffff14;cursor:pointer;transition:.18s}.premiumBtn:active{transform:translateY(3px)}
+.hero{text-align:center;padding:18px 10px 8px}.heroRing{width:190px;height:190px;margin:0 auto 10px;position:relative;display:grid;place-items:center}.heroRing:before,.heroRing:after{content:"";position:absolute;border:1px solid #a77b18;border-radius:50%;inset:4px;animation:spin 8s linear infinite}.heroRing:after{inset:18px;border-style:dashed;animation:spin 5s linear infinite reverse}.heroLogo{width:132px;height:132px;border-radius:38px;display:grid;place-items:center;font-size:82px;color:#090909;background:linear-gradient(145deg,#fff6a8,#d4af37 45%,#704e00);box-shadow:inset 5px 5px 9px #fff,inset -9px -10px 15px #4c3500,0 0 28px #d4af3740;animation:float 2.4s ease-in-out infinite}.hero h2{font-size:27px;letter-spacing:2px;color:#e8c95b}.hero small{color:#666}.container{width:100%;max-width:1100px;margin:auto;padding:18px}.sectionTitle{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.sectionTitle h2{color:#e6c354;font-size:19px}
+.searchBox{position:relative;margin-bottom:18px}.searchBox input{width:100%;height:50px;padding:0 48px 0 17px;border-radius:15px;border:1px solid #654d17;background:linear-gradient(145deg,#111,#030303);color:#fff;outline:none;font-size:14px;box-shadow:6px 7px 15px #000,inset 1px 1px 2px #ffffff0b}.searchBox input:focus{border-color:#c6a035}.searchIcon{position:absolute;right:15px;top:14px;color:#d4af37;font-size:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px}.card{position:relative;overflow:hidden;padding:15px;border-radius:21px;border:1px solid #614a14;background:linear-gradient(145deg,#161616,#050505 48%,#020202);box-shadow:9px 10px 20px #000,inset 1px 1px 2px #ffffff0d;transition:.3s;animation:cardShow .4s ease}.card:hover{transform:translateY(-5px);border-color:#b48b23}.appLogo{width:68px;height:68px;object-fit:cover;display:block;border-radius:18px;border:1px solid #bd9428;background:#050505;margin-bottom:12px;box-shadow:4px 5px 10px #000}.card h3{font-size:16px;margin-bottom:8px}.info{color:#777;font-size:12px;margin:5px 0}.info b{color:#dabe5a}
+.openBtn{width:100%;margin-top:10px;padding:11px;border-radius:12px;border:1px solid #c39a2c;color:#080808;font-weight:bold;background:linear-gradient(145deg,#fff09a,#d4af37,#8a650c);box-shadow:0 6px 12px #000,inset 2px 2px 3px #fff8,inset -3px -3px 5px #654800;cursor:pointer;transition:.18s}.openBtn:active{transform:translateY(4px)}
+.empty{grid-column:1/-1;padding:45px 20px;text-align:center;color:#666;border:1px dashed #594616;border-radius:18px}
+.modal{display:none;position:fixed;inset:0;padding:20px;overflow:auto;background:#000e;z-index:100}.modalBox{width:100%;max-width:520px;margin:40px auto;padding:20px;border-radius:24px;border:1px solid #a37d21;background:linear-gradient(145deg,#131313,#000);box-shadow:0 25px 70px #000;animation:modalOpen .25s ease}.modalBox h2{color:#e7c75b;margin-bottom:16px}
+label{display:block;color:#999;font-size:12px;margin:12px 0 6px}input{width:100%;height:47px;padding:0 13px;border-radius:12px;border:1px solid #4d3b13;outline:none;background:#050505;color:#fff}.formBtns{display:flex;gap:10px;margin-top:18px}.formBtns button{flex:1;min-height:46px;border-radius:12px;cursor:pointer}.save{border:1px solid #c59b2d;color:#050505;font-weight:bold;background:linear-gradient(145deg,#fff19a,#d4af37,#86620b)}.cancel{background:#090909;color:#aaa;border:1px solid #4d4d4d}
+.adminHeader{display:flex;align-items:center;gap:12px;margin-bottom:18px}.adminIcon{width:58px;height:58px;display:grid;place-items:center;border-radius:17px;font-size:30px;color:#050505;background:linear-gradient(145deg,#fff19a,#d4af37,#765400)}.adminMenu{display:grid;gap:11px}.adminMenu button{width:100%;padding:15px;text-align:left;border-radius:14px;border:1px solid #5f4915;background:linear-gradient(145deg,#181818,#050505);color:#e3c454;cursor:pointer;box-shadow:5px 6px 12px #000;transition:.2s}.adminMenu button:active{transform:translateY(3px)}
+.serviceList{display:grid;gap:11px;margin-top:14px}.service{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px;border-radius:15px;background:linear-gradient(145deg,#151515,#030303);border:1px solid #584414;box-shadow:5px 6px 12px #000}.service strong{color:#e4c456}.service small{display:block;color:#666;margin-top:4px;word-break:break-all}.serviceOpen{min-width:78px;padding:9px 10px;border-radius:10px;border:1px solid #a67f22;background:linear-gradient(145deg,#f2d86d,#8d690e);color:#050505;font-weight:bold;cursor:pointer}
+.toast{display:none;position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:300;padding:12px 18px;border-radius:13px;border:1px solid #c09a2c;background:#050505;color:#e7c75b;box-shadow:0 7px 25px #000}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-8px) scale(1.04)}}@keyframes glow{from{box-shadow:inset 2px 2px 5px #fff9,0 7px 18px #000}to{box-shadow:inset 2px 2px 5px #fff9,0 7px 25px #000,0 0 18px #d4af3735}}@keyframes cardShow{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes modalOpen{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@media(max-width:480px){.container{padding:15px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px;border-radius:18px}.appLogo{width:58px;height:58px}.brand h1{font-size:15px}.premiumBtn{padding:9px 10px;font-size:11px}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><div class="kingLogo">♛</div><div><h1>EARNING KING</h1><small>PREMIUM APP CENTER</small></div></div>
+<div class="headerBtns"><button class="premiumBtn" onclick="openServices()">Support</button><button class="premiumBtn" onclick="askAdmin()">Profile</button></div>
+</header>
+<section class="hero"><div class="heroRing"><div class="heroLogo">♛</div></div><h2>EARNING KING</h2><small>PREMIUM EARNING APP CENTER</small></section>
+<main class="container">
+<div class="sectionTitle"><h2>Available Apps</h2></div>
+<div class="searchBox"><input id="appSearch" type="search" placeholder="Search apps..." oninput="searchApps()"><span class="searchIcon">⌕</span></div>
+<div id="appGrid" class="grid"></div>
+</main>
+
+<div id="passwordModal" class="modal"><div class="modalBox"><h2>🔐 Admin Access</h2><label>Admin Password</label><input id="adminPassword" type="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')loginAdmin()"><div class="formBtns"><button class="cancel" onclick="closeModal('passwordModal')">Cancel</button><button class="save" onclick="loginAdmin()">Unlock</button></div></div></div>
+
+<div id="adminModal" class="modal"><div class="modalBox"><div class="adminHeader"><div class="adminIcon">♛</div><div><h2 style="margin:0">Admin Panel</h2><small style="color:#666">EARNING KING CONTROL</small></div></div><div class="adminMenu"><button onclick="openAppForm()">＋ Create New App</button><button onclick="openAppManager()">✎ Change / Remove Apps</button><button onclick="openServiceManager()">☰ Manage Support Services</button><button onclick="closeModal('adminModal')">✕ Close Admin</button></div></div></div>
+
+
+<div id="appManagerModal" class="modal"><div class="modalBox"><div class="sectionTitle"><h2>Manage Apps</h2><button class="premiumBtn" onclick="openAppForm()">＋ Add</button></div><div id="adminAppList" class="serviceList"></div><div class="formBtns"><button class="cancel" onclick="closeModal('appManagerModal')">Close</button></div></div></div>
+<div id="appFormModal" class="modal"><div class="modalBox"><h2 id="appFormTitle">Create New App</h2><label>App Logo URL</label><input id="appLogo" placeholder="https://example.com/logo.png"><label>App Name</label><input id="appName" placeholder="App Name"><label>App Link</label><input id="appLink" placeholder="https://example.com"><label>Code</label><input id="appCode" placeholder="ABC123"><label>Bonus ₹</label><input id="appBonus" type="number" placeholder="100"><div class="formBtns"><button class="cancel" onclick="closeModal('appFormModal')">Cancel</button><button class="save" onclick="saveApp()">Save</button></div></div></div>
+
+<div id="serviceModal" class="modal"><div class="modalBox"><div class="sectionTitle"><h2>Support Service</h2><button class="premiumBtn" id="serviceAddButton" onclick="openServiceForm()" style="display:none">＋ Add</button></div><div class="searchBox"><input id="serviceSearch" type="search" placeholder="Search Telegram / Support..." oninput="searchServices()"><span class="searchIcon">⌕</span></div><div id="serviceList" class="serviceList"></div><div class="formBtns"><button class="cancel" onclick="closeModal('serviceModal')">Close</button></div></div></div>
+
+<div id="serviceFormModal" class="modal"><div class="modalBox"><h2 id="serviceFormTitle">Add Support Service</h2><label>Service Name</label><input id="serviceName" placeholder="Telegram Support"><label>Telegram / Service Link</label><input id="serviceLink" placeholder="https://t.me/example"><div class="formBtns"><button class="cancel" onclick="closeModal('serviceFormModal')">Cancel</button><button class="save" onclick="saveService()">Save</button></div></div></div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const ADMIN_PASSWORD="1234";
+let apps=JSON.parse(localStorage.getItem("earningKingApps")||"[]");
+let services=JSON.parse(localStorage.getItem("earningKingServices")||"[]");
+let editAppIndex=-1,editServiceIndex=-1,adminUnlocked=false;
+
+function saveData(){localStorage.setItem("earningKingApps",JSON.stringify(apps));localStorage.setItem("earningKingServices",JSON.stringify(services))}
+function searchApps(){renderApps(document.getElementById("appSearch").value.toLowerCase().trim())}
+function renderApps(query=""){
+ const grid=document.getElementById("appGrid");
+ const filtered=apps.filter(a=>(a.name||"").toLowerCase().includes(query)||(a.code||"").toLowerCase().includes(query));
+ if(!filtered.length){grid.innerHTML=`<div class="empty">${apps.length?"No matching app found.":"No apps available yet."}</div>`;return}
+ grid.innerHTML=filtered.map(a=>{const i=apps.indexOf(a);return `<div class="card"><img class="appLogo" src="${escapeAttr(a.logo)}" onerror="this.src='${makeLogo(a.name)}'"><h3>${escapeHtml(a.name)}</h3><div class="info">Code: <b>${escapeHtml(a.code||"-")}</b></div><div class="info">Bonus: <b>₹${escapeHtml(a.bonus||"0")}</b></div><button class="openBtn" onclick="openApp(${i})">OPEN</button></div>`}).join("")
+}
+function openApp(i){const l=apps[i].link;if(!l){toast("App link available नहीं है");return}window.open(l,"_blank")}
+function askAdmin(){document.getElementById("adminPassword").value="";document.getElementById("passwordModal").style.display="block";setTimeout(()=>document.getElementById("adminPassword").focus(),100)}
+function loginAdmin(){if(document.getElementById("adminPassword").value===ADMIN_PASSWORD){adminUnlocked=true;closeModal("passwordModal");document.getElementById("adminModal").style.display="block";toast("Admin unlocked ✓")}else{toast("Wrong password");document.getElementById("adminPassword").value=""}}
+function openAppManager(){if(!adminUnlocked){askAdmin();return}closeModal("adminModal");renderAdminApps();document.getElementById("appManagerModal").style.display="block"}
+function renderAdminApps(){let box=document.getElementById("adminAppList");if(!apps.length){box.innerHTML='<div class="empty">No apps available.</div>';return}box.innerHTML=apps.map((a,i)=>`<div class="service"><div style="flex:1"><strong>${escapeHtml(a.name)}</strong><small>Code: ${escapeHtml(a.code||"-")} • Bonus: ₹${escapeHtml(a.bonus||"0")}</small></div><button class="serviceOpen" onclick="openAppForm(${i})">EDIT</button><button class="serviceOpen" style="background:linear-gradient(145deg,#ff9a9a,#7d1f1f);color:#fff" onclick="removeApp(${i})">REMOVE</button></div>`).join("")}
+function removeApp(i){if(!adminUnlocked)return;if(!confirm("Remove this app?"))return;apps.splice(i,1);saveData();renderApps();renderAdminApps();toast("App Removed ✓")}
+function openAppForm(i=-1){if(!adminUnlocked){askAdmin();return}editAppIndex=i;document.getElementById("appFormTitle").textContent=i>=0?"Edit App":"Create New App";if(i>=0){let a=apps[i];appLogo.value=a.logo||"";appName.value=a.name||"";appLink.value=a.link||"";appCode.value=a.code||"";appBonus.value=a.bonus||""}else{appLogo.value=appName.value=appLink.value=appCode.value=appBonus.value=""}document.getElementById("appFormModal").style.display="block"}
+function saveApp(){if(!adminUnlocked){askAdmin();return}let d={logo:appLogo.value.trim(),name:appName.value.trim(),link:appLink.value.trim(),code:appCode.value.trim(),bonus:appBonus.value.trim()};if(!d.name){toast("App Name डालें");return}if(editAppIndex>=0)apps[editAppIndex]=d;else apps.push(d);saveData();renderApps();closeModal("appFormModal");toast(editAppIndex>=0?"App Updated ✓":"App Created ✓")}
+function openServices(){adminUnlocked=false;document.getElementById("serviceAddButton").style.display="none";document.getElementById("serviceSearch").value="";renderServices();document.getElementById("serviceModal").style.display="block"}
+function openServiceManager(){if(!adminUnlocked){askAdmin();return}closeModal("adminModal");document.getElementById("serviceAddButton").style.display="block";document.getElementById("serviceSearch").value="";renderServices();document.getElementById("serviceModal").style.display="block"}
+function searchServices(){renderServices(document.getElementById("serviceSearch").value.toLowerCase().trim())}
+function renderServices(q=""){let list=document.getElementById("serviceList"),f=services.filter(s=>(s.name||"").toLowerCase().includes(q));if(!f.length){list.innerHTML=`<div class="empty">${services.length?"No matching service found.":"No support service available."}</div>`;return}list.innerHTML=f.map(s=>{let i=services.indexOf(s);return `<div class="service"><div><strong>${escapeHtml(s.name)}</strong><small>${escapeHtml(s.link)}</small></div><button class="serviceOpen" onclick="openService(${i})">OPEN</button></div>`}).join("")}
+function openService(i){let l=services[i].link;if(!l){toast("Service link available नहीं है");return}window.open(l,"_blank")}
+function openServiceForm(i=-1){if(!adminUnlocked){askAdmin();return}editServiceIndex=i;document.getElementById("serviceFormTitle").textContent=i>=0?"Edit Support Service":"Add Support Service";if(i>=0){serviceName.value=services[i].name;serviceLink.value=services[i].link}else{serviceName.value="";serviceLink.value=""}document.getElementById("serviceFormModal").style.display="block"}
+function saveService(){if(!adminUnlocked){askAdmin();return}let d={name:serviceName.value.trim(),link:serviceLink.value.trim()};if(!d.name){toast("Service Name डालें");return}if(editServiceIndex>=0)services[editServiceIndex]=d;else services.push(d);saveData();closeModal("serviceFormModal");renderServices();toast(editServiceIndex>=0?"Service Updated ✓":"Service Added ✓")}
+function closeModal(id){document.getElementById(id).style.display="none"}
+window.addEventListener("click",e=>document.querySelectorAll(".modal").forEach(m=>{if(e.target===m)m.style.display="none"}));
+function toast(m){let t=document.getElementById("toast");t.textContent=m;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2200)}
+function escapeHtml(v){return String(v||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function escapeAttr(v){return escapeHtml(v)}
+function makeLogo(n){let l=(n||"K").charAt(0).toUpperCase(),s=`<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" rx="22" fill="#050505"/><text x="50" y="68" text-anchor="middle" font-size="52" font-family="Arial" font-weight="bold" fill="#d4af37">${l}</text></svg>`;return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(s)}
+renderApps();
+</script>
+</body>
+</html>
